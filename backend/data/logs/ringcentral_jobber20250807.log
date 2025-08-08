@@ -1,0 +1,246 @@
+2025-08-07 16:07:04,406 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:07:04,407 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:07:04,420 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:07:04,423 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:07:04,436 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-08-07 16:07:04,440 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-08-07 16:07:04,442 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-08-07 16:07:04,442 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-08-07 16:07:04,442 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-08-07 16:07:04,444 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:07:04,444 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-08-07 16:07:04,444 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:07:04,444 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-08-07 16:07:04,446 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-08-07 16:07:04,447 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-08-07 16:07:04,448 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4338102160'>
+2025-08-07 16:10:49,349 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:10:49,350 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:10:49,364 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:10:49,368 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:10:49,374 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-08-07 16:10:49,377 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-08-07 16:10:49,378 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-08-07 16:10:49,378 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-08-07 16:10:49,379 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-08-07 16:10:49,380 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:10:49,380 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-08-07 16:10:49,380 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:10:49,380 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-08-07 16:10:49,382 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-08-07 16:10:49,382 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-08-07 16:10:49,383 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4408192912'>
+2025-08-07 16:11:25,385 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:11:25,387 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:11:25,407 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:11:25,410 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:11:25,415 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-08-07 16:11:25,418 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-08-07 16:11:25,418 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-08-07 16:11:25,419 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-08-07 16:11:25,419 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-08-07 16:11:25,420 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:11:25,421 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-08-07 16:11:25,421 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:11:25,421 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-08-07 16:11:25,422 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-08-07 16:11:25,422 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-08-07 16:11:25,423 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4405115744'>
+2025-08-07 16:11:46,723 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:11:46,724 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:11:46,741 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:11:46,745 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:11:46,750 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-08-07 16:11:46,753 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-08-07 16:11:46,754 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-08-07 16:11:46,754 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-08-07 16:11:46,755 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-08-07 16:11:46,756 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:11:46,756 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-08-07 16:11:46,756 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:11:46,756 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-08-07 16:11:46,757 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-08-07 16:11:46,758 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-08-07 16:11:46,759 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4341198736'>
+2025-08-07 16:18:07,324 - __main__ - INFO - Starting web interface on port 8080
+2025-08-07 16:18:07,324 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-08-07 16:18:07,434 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.4.131:8080
+2025-08-07 16:18:07,435 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-07 16:18:07,435 - werkzeug - INFO -  * Restarting with stat
+2025-08-07 16:18:07,545 - __main__ - INFO - Starting web interface on port 8080
+2025-08-07 16:18:07,545 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-08-07 16:18:07,557 - werkzeug - WARNING -  * Debugger is active!
+2025-08-07 16:18:07,567 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-08-07 16:18:17,978 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:17] "GET / HTTP/1.1" 200 -
+2025-08-07 16:18:18,063 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:18] "GET /api/status HTTP/1.1" 200 -
+2025-08-07 16:18:18,064 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:18] "GET /api/logs HTTP/1.1" 200 -
+2025-08-07 16:18:19,745 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:19] "GET /auth/jobber HTTP/1.1" 200 -
+2025-08-07 16:18:23,506 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:23] "GET /api/status HTTP/1.1" 200 -
+2025-08-07 16:18:28,513 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:28] "GET /api/status HTTP/1.1" 200 -
+2025-08-07 16:18:28,515 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:28] "GET /api/logs HTTP/1.1" 200 -
+2025-08-07 16:18:33,065 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:33] "GET /api/status HTTP/1.1" 200 -
+2025-08-07 16:18:33,679 - __main__ - INFO - Sync service thread - checking every 5 minutes
+2025-08-07 16:18:33,679 - __main__ - INFO - Starting call synchronization
+2025-08-07 16:18:34,041 - __main__ - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:18:34,211 - __main__ - INFO - Retrieved 0 calls from RingCentral
+2025-08-07 16:18:34,214 - __main__ - INFO - Sync completed: 0 calls processed, 0 errors
+2025-08-07 16:18:34,391 - __main__ - ERROR - Failed to register webhook: {"errorCode":"CMN-101","message":"Parameter [eventFilters] value is invalid","errors":[{"errorCode":"CMN-101","message":"Parameter [eventFilters] value is invalid","parameterName":"eventFilters"}],"parameterName":"eventFilters"}
+2025-08-07 16:18:34,392 - __main__ - ERROR - Failed to start notification service - webhook setup failed
+2025-08-07 16:18:34,392 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:34] "POST /api/sync/start HTTP/1.1" 200 -
+2025-08-07 16:18:34,398 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:34] "GET /api/status HTTP/1.1" 200 -
+2025-08-07 16:18:35,600 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:35] "GET /api/status HTTP/1.1" 200 -
+2025-08-07 16:18:35,602 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:35] "GET /api/logs HTTP/1.1" 200 -
+2025-08-07 16:18:37,090 - __main__ - INFO - Sync service stopped
+2025-08-07 16:18:37,090 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:37] "POST /api/sync/stop HTTP/1.1" 200 -
+2025-08-07 16:18:37,093 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:37] "GET /api/status HTTP/1.1" 200 -
+2025-08-07 16:18:38,066 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:38] "GET /api/status HTTP/1.1" 200 -
+2025-08-07 16:18:38,068 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:38] "GET /api/logs HTTP/1.1" 200 -
+2025-08-07 16:18:39,961 - __main__ - INFO - Starting call synchronization
+2025-08-07 16:18:40,112 - __main__ - INFO - Retrieved 0 calls from RingCentral
+2025-08-07 16:18:40,117 - __main__ - INFO - Sync completed: 0 calls processed, 0 errors
+2025-08-07 16:18:40,117 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:40] "POST /api/sync/manual HTTP/1.1" 200 -
+2025-08-07 16:18:43,068 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:43] "GET /api/status HTTP/1.1" 200 -
+2025-08-07 16:18:48,502 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:48] "GET /api/status HTTP/1.1" 200 -
+2025-08-07 16:18:48,504 - werkzeug - INFO - 127.0.0.1 - - [07/Aug/2025 16:18:48] "GET /api/logs HTTP/1.1" 200 -
+2025-08-07 16:20:15,795 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:20:15,796 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:20:15,816 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:20:15,819 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:20:15,826 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-08-07 16:20:15,831 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-08-07 16:20:15,832 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-08-07 16:20:15,832 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-08-07 16:20:15,833 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-08-07 16:20:15,834 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:20:15,834 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-08-07 16:20:15,834 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:20:15,834 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-08-07 16:20:15,835 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-08-07 16:20:15,836 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-08-07 16:20:15,837 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4406570896'>
+2025-08-07 16:22:37,399 - ringcentral_to_jobber - INFO - Webhook registered successfuly: webhook_123
+2025-08-07 16:22:52,902 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:22:52,903 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:22:52,916 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:22:52,918 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:22:52,925 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-08-07 16:22:52,928 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-08-07 16:22:52,928 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-08-07 16:22:52,929 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-08-07 16:22:52,929 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-08-07 16:22:52,930 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:22:52,930 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-08-07 16:22:52,930 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:22:52,930 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-08-07 16:22:52,932 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-08-07 16:22:52,932 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-08-07 16:22:52,933 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4366610320'>
+2025-08-07 16:25:32,664 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:25:32,664 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:25:32,676 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:25:32,678 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:25:32,684 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-08-07 16:25:32,687 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-08-07 16:25:32,687 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-08-07 16:25:32,688 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-08-07 16:25:32,688 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-08-07 16:25:32,689 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:25:32,690 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-08-07 16:25:32,690 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:25:32,690 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-08-07 16:25:32,691 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-08-07 16:25:32,692 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-08-07 16:25:32,693 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4378718096'>
+2025-08-07 16:29:05,684 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:29:05,685 - ringcentral_to_jobber - INFO - Webhook registered successfuly: webhook_123
+2025-08-07 16:29:05,705 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:29:05,708 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:29:05,713 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-08-07 16:29:05,714 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-08-07 16:29:05,717 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-08-07 16:29:05,717 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-08-07 16:29:05,718 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-08-07 16:29:05,719 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:29:05,719 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-08-07 16:29:05,719 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:29:05,719 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-08-07 16:29:05,721 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-08-07 16:29:05,721 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-08-07 16:29:05,722 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4378704736'>
+2025-08-07 16:32:36,341 - ringcentral_to_jobber - ERROR - Failed to register webhook: <Mock name='post().text' id='4406464864'>
+2025-08-07 16:32:36,342 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:32:36,342 - ringcentral_to_jobber - INFO - Webhook registered successfuly: webhook_123
+2025-08-07 16:32:36,355 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:32:36,357 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:32:36,365 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-08-07 16:32:36,365 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-08-07 16:32:36,366 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-08-07 16:32:36,366 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-08-07 16:32:36,367 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-08-07 16:32:36,368 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:32:36,368 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-08-07 16:32:36,368 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:32:36,368 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-08-07 16:32:36,370 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-08-07 16:32:36,370 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-08-07 16:32:36,371 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4406464528'>
+2025-08-07 16:32:56,959 - ringcentral_to_jobber - ERROR - Error setting up webhooks: Network error
+2025-08-07 16:32:56,960 - ringcentral_to_jobber - ERROR - Failed to register webhook: <Mock name='post().text' id='4410316448'>
+2025-08-07 16:32:56,960 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:32:56,961 - ringcentral_to_jobber - INFO - Webhook registered successfuly: webhook_123
+2025-08-07 16:32:56,972 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:32:56,974 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:32:56,983 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-08-07 16:32:56,983 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-08-07 16:32:56,984 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-08-07 16:32:56,984 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-08-07 16:32:56,984 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-08-07 16:32:56,985 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:32:56,985 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-08-07 16:32:56,985 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:32:56,985 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-08-07 16:32:56,987 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-08-07 16:32:56,987 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-08-07 16:32:56,988 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4409456832'>
+2025-08-07 16:42:21,798 - ringcentral_to_jobber - INFO - Incoming call from +15551234567: Test Customer
+2025-08-07 16:42:21,799 - ringcentral_to_jobber - ERROR - Error setting up webhooks: Network error
+2025-08-07 16:42:21,800 - ringcentral_to_jobber - ERROR - Failed to register webhook: <Mock name='post().text' id='4410399040'>
+2025-08-07 16:42:21,800 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:42:21,801 - ringcentral_to_jobber - INFO - Webhook registered successfuly: webhook_123
+2025-08-07 16:42:21,815 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:42:21,817 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:42:21,825 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-08-07 16:42:21,826 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-08-07 16:42:21,826 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-08-07 16:42:21,827 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-08-07 16:42:21,827 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-08-07 16:42:21,828 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:42:21,829 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-08-07 16:42:21,829 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:42:21,829 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-08-07 16:42:21,830 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-08-07 16:42:21,830 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-08-07 16:42:21,831 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4410396352'>
+2025-08-07 16:44:25,564 - ringcentral_to_jobber - INFO - Call ended: +15551234567
+2025-08-07 16:44:25,567 - ringcentral_to_jobber - INFO - Incoming call from +15551234567: Test Customer
+2025-08-07 16:44:25,568 - ringcentral_to_jobber - ERROR - Error setting up webhooks: Network error
+2025-08-07 16:44:25,568 - ringcentral_to_jobber - ERROR - Failed to register webhook: <Mock name='post().text' id='4398966368'>
+2025-08-07 16:44:25,568 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping webhook setup
+2025-08-07 16:44:25,569 - ringcentral_to_jobber - INFO - Webhook registered successfuly: webhook_123
+2025-08-07 16:44:25,592 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:44:25,599 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:44:25,604 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-08-07 16:44:25,605 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-08-07 16:44:25,605 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-08-07 16:44:25,605 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-08-07 16:44:25,606 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-08-07 16:44:25,607 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-08-07 16:44:25,608 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-08-07 16:44:25,608 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-08-07 16:44:25,608 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-08-07 16:44:25,609 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-08-07 16:44:25,609 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-08-07 16:44:25,611 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4398962672'>

@@ -1,0 +1,400 @@
+2025-06-27 01:00:14,982 - __main__ - INFO - Starting web interface on port 8080
+2025-06-27 01:00:14,982 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-27 01:00:14,986 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.4.131:8080
+2025-06-27 01:00:14,986 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-27 01:00:34,417 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 01:00:34] "GET / HTTP/1.1" 200 -
+2025-06-27 01:01:36,196 - ringcentral_to_jobber - INFO - Starting call synchronization
+2025-06-27 01:01:36,197 - ringcentral_to_jobber - ERROR - Sync failed: RingCentralClient.get_recent_calls() missing 1 required positional argument: 'self'
+2025-06-27 01:11:30,508 - ringcentral_to_jobber - INFO - Starting call synchronization
+2025-06-27 01:11:30,508 - ringcentral_to_jobber - ERROR - Sync failed: RingCentralClient.get_recent_calls() missing 1 required positional argument: 'self'
+2025-06-27 10:50:59,360 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 10:50:59,363 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 10:50:59,363 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 10:53:56,319 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 10:53:56,321 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 10:53:56,321 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 10:58:10,922 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 10:58:10,923 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 10:58:10,923 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 11:04:24,041 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 11:04:24,041 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 11:04:24,042 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 11:04:24,042 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 11:04:48,409 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 11:04:48,412 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 11:04:48,412 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 11:04:48,412 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 11:04:57,690 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 11:04:57,691 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 11:04:57,691 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 11:04:57,691 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 11:06:17,420 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 11:06:17,421 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 11:06:17,422 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 11:06:17,422 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 11:06:17,425 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 11:06:17,425 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 11:06:17,425 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 11:06:17,426 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 11:08:13,815 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 11:08:13,815 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 11:08:13,817 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 11:08:13,818 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 11:08:13,820 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 11:08:13,820 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 11:08:13,820 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 11:08:13,820 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 11:09:55,670 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 11:09:55,671 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 11:09:55,674 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 11:09:55,675 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 11:09:55,676 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 11:09:55,678 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 11:09:55,678 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 11:09:55,678 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 11:09:55,678 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 11:23:38,586 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 11:23:38,587 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 11:23:38,589 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 11:23:38,590 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 11:23:38,591 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 11:23:38,592 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 11:23:38,592 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 11:23:38,592 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 11:23:38,592 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 11:27:30,703 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 11:27:30,703 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 11:27:30,704 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 11:27:30,706 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 11:27:30,707 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 11:27:30,713 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 11:27:30,713 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 11:27:30,713 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 11:27:30,714 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 11:31:28,558 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 11:31:28,559 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 11:31:28,560 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 11:31:28,561 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 11:31:28,562 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 11:31:28,567 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 11:31:28,568 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 11:31:28,568 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 11:31:28,568 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 11:32:50,724 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 11:32:50,725 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 11:32:50,726 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 11:32:50,727 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 11:32:50,729 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 11:32:50,731 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 11:32:50,732 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 11:32:50,732 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 11:32:50,732 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 11:34:13,644 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 11:34:13,645 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 11:34:13,645 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 11:34:13,646 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 11:34:13,647 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 11:34:13,648 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 11:34:13,648 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 11:34:13,648 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 11:34:13,648 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 11:38:45,610 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 11:38:45,611 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 11:38:45,611 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 11:38:45,612 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 11:38:45,612 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 11:38:45,613 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 11:38:45,613 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 11:38:45,614 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 11:38:45,614 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 11:41:40,040 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 11:41:40,041 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 11:41:40,041 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 11:41:40,042 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 11:41:40,043 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 11:41:40,044 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 11:41:40,044 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 11:41:40,044 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 11:41:40,044 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:01:26,381 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 12:01:26,383 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:01:26,383 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 12:01:26,384 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 12:01:26,385 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 12:01:26,386 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:01:26,386 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 12:01:26,386 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:01:26,386 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:03:02,900 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 12:03:02,901 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:03:02,902 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 12:03:02,903 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 12:03:02,903 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 12:03:02,904 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:03:02,905 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 12:03:02,905 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:03:02,905 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:03:02,908 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4369408960'>
+2025-06-27 12:05:34,478 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 12:05:34,481 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:05:34,482 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 12:05:34,482 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 12:05:34,485 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 12:05:34,486 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:05:34,486 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 12:05:34,486 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:05:34,486 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:05:34,489 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-06-27 12:05:34,490 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4344285568'>
+2025-06-27 12:09:20,176 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 12:09:20,178 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:09:20,178 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 12:09:20,179 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 12:09:20,179 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 12:09:20,180 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:09:20,180 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 12:09:20,180 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:09:20,180 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:09:20,183 - ringcentral_to_jobber - INFO - No customer found for phone +1551234567
+2025-06-27 12:09:20,184 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-06-27 12:09:20,185 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4406748096'>
+2025-06-27 12:09:41,675 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 12:09:41,676 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:09:41,676 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 12:09:41,677 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 12:09:41,677 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 12:09:41,678 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:09:41,679 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 12:09:41,679 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:09:41,679 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:09:41,681 - ringcentral_to_jobber - INFO - No customer found for phone +1551234567
+2025-06-27 12:09:41,682 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-06-27 12:09:41,683 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4365197600'>
+2025-06-27 12:09:55,546 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 12:09:55,546 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:09:55,547 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 12:09:55,547 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 12:09:55,548 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 12:09:55,549 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:09:55,549 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 12:09:55,549 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:09:55,549 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:09:55,551 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-06-27 12:09:55,552 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-06-27 12:09:55,553 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4369013728'>
+2025-06-27 12:10:17,223 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 12:10:17,224 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:10:17,224 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 12:10:17,225 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 12:10:17,225 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 12:10:17,226 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:10:17,226 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 12:10:17,227 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:10:17,227 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:10:17,229 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-06-27 12:10:17,230 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-06-27 12:10:17,231 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4417231840'>
+2025-06-27 12:10:24,311 - ringcentral_to_jobber - INFO - Starting call synchronization
+2025-06-27 12:10:24,311 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:10:24,311 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:10:24,311 - ringcentral_to_jobber - INFO - [MOCK MODE] Would create note for customer mock_customer_123
+2025-06-27 12:10:24,312 - ringcentral_to_jobber - INFO - Processed call for customer: Mock Customer
+2025-06-27 12:10:24,312 - ringcentral_to_jobber - INFO - Sync completed: 1 calls processed, 0 errors
+2025-06-27 12:10:24,314 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 12:10:24,315 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:10:24,315 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 12:10:24,315 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 12:10:24,316 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 12:10:24,318 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 12:10:24,318 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:10:24,318 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:10:24,321 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-06-27 12:10:24,321 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-06-27 12:10:24,323 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4344913200'>
+2025-06-27 12:33:16,482 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 12:33:16,482 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:33:16,483 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 12:33:16,483 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 12:33:16,486 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 12:33:16,487 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:33:16,488 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 12:33:16,488 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:33:16,488 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:33:16,489 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-06-27 12:33:16,489 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-06-27 12:33:16,490 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4402057904'>
+2025-06-27 12:40:54,285 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:40:54,289 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 12:40:54,290 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:40:54,290 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 12:40:54,291 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 12:40:54,293 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 12:40:54,294 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:40:54,294 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 12:40:54,294 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:40:54,294 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:40:54,296 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-06-27 12:40:54,296 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-06-27 12:40:54,297 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4373795504'>
+2025-06-27 12:43:26,241 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:43:26,244 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:43:26,248 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 12:43:26,248 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:43:26,249 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 12:43:26,249 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 12:43:26,251 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 12:43:26,252 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:43:26,253 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 12:43:26,253 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:43:26,253 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:43:26,254 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-06-27 12:43:26,254 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-06-27 12:43:26,256 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4377399984'>
+2025-06-27 12:50:36,146 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:50:36,149 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:50:36,155 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 12:50:36,156 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:50:36,156 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 12:50:36,157 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 12:50:36,161 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 12:50:36,163 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:50:36,163 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 12:50:36,163 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:50:36,163 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:50:36,165 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-06-27 12:50:36,165 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-06-27 12:50:36,166 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4338308432'>
+2025-06-27 12:50:58,228 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:50:58,231 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:50:58,238 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-27 12:50:58,238 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-27 12:50:58,238 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-27 12:50:58,239 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-27 12:50:58,242 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-27 12:50:58,243 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-27 12:50:58,243 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-27 12:50:58,243 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-27 12:50:58,243 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-27 12:50:58,244 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-06-27 12:50:58,245 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-06-27 12:50:58,246 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4346713760'>
+2025-06-27 12:51:28,176 - __main__ - INFO - Starting web interface on port 8080
+2025-06-27 12:51:28,177 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-27 12:51:28,206 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.4.131:8080
+2025-06-27 12:51:28,206 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-27 12:51:48,908 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 12:51:48] "GET / HTTP/1.1" 200 -
+2025-06-27 12:54:40,557 - __main__ - INFO - Starting web interface on port 8080
+2025-06-27 12:54:40,558 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-27 12:54:40,891 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.4.131:8080
+2025-06-27 12:54:40,892 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-27 12:54:40,893 - werkzeug - INFO -  * Restarting with stat
+2025-06-27 12:54:41,014 - __main__ - INFO - Starting web interface on port 8080
+2025-06-27 12:54:41,014 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-27 12:54:41,026 - werkzeug - WARNING -  * Debugger is active!
+2025-06-27 12:54:41,036 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-27 12:54:49,289 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 12:54:49] "GET / HTTP/1.1" 200 -
+2025-06-27 12:55:17,239 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 12:55:17] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 12:55:37,382 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 12:55:37] "[31m[1mGET /api/sync/start HTTP/1.1[0m" 405 -
+2025-06-27 12:56:07,457 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 12:56:07] "GET / HTTP/1.1" 200 -
+2025-06-27 13:19:37,354 - __main__ - INFO - Starting web interface on port 8080
+2025-06-27 13:19:37,354 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-27 13:19:37,410 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.4.131:8080
+2025-06-27 13:19:37,410 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-27 13:19:37,411 - werkzeug - INFO -  * Restarting with stat
+2025-06-27 13:19:37,517 - __main__ - INFO - Starting web interface on port 8080
+2025-06-27 13:19:37,518 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-27 13:19:37,530 - werkzeug - WARNING -  * Debugger is active!
+2025-06-27 13:19:37,538 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-27 13:19:45,863 - werkzeug - INFO -  * Detected change in '/Users/nevinmadathilate/Desktop/RingCentralIntegration/backend/ringcentral_to_jobber.py', reloading
+2025-06-27 13:19:45,949 - werkzeug - INFO -  * Restarting with stat
+2025-06-27 13:19:46,085 - __main__ - INFO - Starting web interface on port 8080
+2025-06-27 13:19:46,085 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-27 13:19:46,102 - werkzeug - WARNING -  * Debugger is active!
+2025-06-27 13:19:46,110 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-27 13:20:02,044 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 13:20:02] "GET / HTTP/1.1" 200 -
+2025-06-27 13:20:02,149 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 13:20:02] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 13:20:02,149 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 13:20:02] "GET /api/logs HTTP/1.1" 200 -
+2025-06-27 13:20:07,132 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 13:20:07] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 13:20:07,416 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 13:20:07] "GET /auth/jobber HTTP/1.1" 200 -
+2025-06-27 13:20:12,601 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 13:20:12] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 13:20:12,603 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 13:20:12] "GET /api/logs HTTP/1.1" 200 -
+2025-06-27 13:20:17,591 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 13:20:17] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 13:20:22,131 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 13:20:22] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 13:20:22,131 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 13:20:22] "GET /api/logs HTTP/1.1" 200 -
+2025-06-27 14:08:06,939 - __main__ - INFO - Starting web interface on port 8080
+2025-06-27 14:08:06,939 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-27 14:08:07,059 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.4.131:8080
+2025-06-27 14:08:07,059 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-27 14:08:07,060 - werkzeug - INFO -  * Restarting with stat
+2025-06-27 14:08:07,160 - __main__ - INFO - Starting web interface on port 8080
+2025-06-27 14:08:07,160 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-27 14:08:07,172 - werkzeug - WARNING -  * Debugger is active!
+2025-06-27 14:08:07,181 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-27 14:08:14,166 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:14] "GET / HTTP/1.1" 200 -
+2025-06-27 14:08:14,342 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:14] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:08:14,343 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:14] "GET /api/logs HTTP/1.1" 200 -
+2025-06-27 14:08:17,469 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:17] "GET /auth/jobber HTTP/1.1" 200 -
+2025-06-27 14:08:19,291 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:19] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:08:24,298 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:24] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:08:24,299 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:24] "GET /api/logs HTTP/1.1" 200 -
+2025-06-27 14:08:30,200 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:30] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:08:35,052 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:35] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:08:35,053 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:35] "GET /api/logs HTTP/1.1" 200 -
+2025-06-27 14:08:39,297 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:39] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:08:44,298 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:44] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:08:44,299 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:44] "GET /api/logs HTTP/1.1" 200 -
+2025-06-27 14:08:49,293 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:49] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:08:54,293 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:54] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:08:54,294 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:54] "GET /api/logs HTTP/1.1" 200 -
+2025-06-27 14:08:59,292 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:08:59] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:09:04,295 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:04] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:09:04,295 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:04] "GET /api/logs HTTP/1.1" 200 -
+2025-06-27 14:09:10,206 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:10] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:09:14,320 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:14] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:09:14,328 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:14] "GET /api/logs HTTP/1.1" 200 -
+2025-06-27 14:09:19,298 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:19] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:09:22,436 - __main__ - INFO - Sync service thread - checking every 5 minutes
+2025-06-27 14:09:22,437 - __main__ - INFO - Starting call synchronization
+2025-06-27 14:09:22,662 - __main__ - INFO - Successfully authenticated with RingCentral
+2025-06-27 14:09:22,818 - __main__ - INFO - Retrieved 0 calls from RingCentral
+2025-06-27 14:09:22,820 - __main__ - INFO - Sync completed: 0 calls processed, 0 errors
+2025-06-27 14:09:22,820 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:22] "POST /api/sync/start HTTP/1.1" 200 -
+2025-06-27 14:09:22,827 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:22] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:09:24,295 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:24] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:09:24,295 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:24] "GET /api/logs HTTP/1.1" 200 -
+2025-06-27 14:09:24,568 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:24] "[35m[1mPOST /api/sync/stop HTTP/1.1[0m" 500 -
+2025-06-27 14:09:31,018 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:31] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:09:32,181 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:32] "[35m[1mPOST /api/sync/stop HTTP/1.1[0m" 500 -
+2025-06-27 14:09:34,291 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:34] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:09:34,293 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:34] "GET /api/logs HTTP/1.1" 200 -
+2025-06-27 14:09:40,208 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:40] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:09:45,200 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:45] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 14:09:45,201 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:45] "GET /api/logs HTTP/1.1" 200 -
+2025-06-27 14:09:50,205 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 14:09:50] "GET /api/status HTTP/1.1" 200 -
+2025-06-27 18:59:21,954 - __main__ - INFO - Starting web interface on port 8080
+2025-06-27 18:59:21,954 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-27 18:59:22,169 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.4.131:8080
+2025-06-27 18:59:22,169 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-27 18:59:22,170 - werkzeug - INFO -  * Restarting with stat
+2025-06-27 18:59:22,280 - __main__ - INFO - Starting web interface on port 8080
+2025-06-27 18:59:22,280 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-27 18:59:22,291 - werkzeug - WARNING -  * Debugger is active!
+2025-06-27 18:59:22,299 - werkzeug - INFO -  * Debugger PIN: 124-771-701

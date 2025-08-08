@@ -1,0 +1,217 @@
+2025-06-30 16:43:49,845 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-30 16:43:49,849 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-30 16:43:49,854 - ringcentral_to_jobber - INFO - Successfully created note for customer customer_123
+2025-06-30 16:43:49,855 - ringcentral_to_jobber - INFO - [MOCK MODE] Mock customer lookup for +15551234567
+2025-06-30 16:43:49,855 - ringcentral_to_jobber - INFO - No customer found for phone numer: +15551234567
+2025-06-30 16:43:49,855 - ringcentral_to_jobber - INFO - Found customer: Test Customer for phone +15551234567
+2025-06-30 16:43:49,858 - ringcentral_to_jobber - INFO - Jobber token stored successfully
+2025-06-30 16:43:49,859 - ringcentral_to_jobber - INFO - Successfully authenticated with RingCentral
+2025-06-30 16:43:49,859 - ringcentral_to_jobber - ERROR - Failed to authenticate with RingCentral: Network error
+2025-06-30 16:43:49,859 - ringcentral_to_jobber - INFO - [MOCK MODE] Skipping RingCentral authentication
+2025-06-30 16:43:49,859 - ringcentral_to_jobber - INFO - [MOCK MODE] Returning mock call data
+2025-06-30 16:43:49,860 - ringcentral_to_jobber - INFO - No customer found for phone +15551234567
+2025-06-30 16:43:49,861 - ringcentral_to_jobber - WARNING - Call call_123 has no phone number
+2025-06-30 16:43:49,862 - ringcentral_to_jobber - INFO - Processed call for customer: <MagicMock name='JobberClient().find_customer_by_phone().get()' id='4410970128'>
+2025-06-30 16:52:49,224 - __main__ - INFO - Starting web interface on port 8080
+2025-06-30 16:52:49,224 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-30 16:52:49,308 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.0.0.131:8080
+2025-06-30 16:52:49,309 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-30 16:52:49,309 - werkzeug - INFO -  * Restarting with stat
+2025-06-30 16:52:49,528 - __main__ - INFO - Starting web interface on port 8080
+2025-06-30 16:52:49,528 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-30 16:52:49,542 - werkzeug - WARNING -  * Debugger is active!
+2025-06-30 16:52:49,554 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-30 16:53:12,176 - werkzeug - INFO -  * Detected change in '/Users/nevinmadathilate/Desktop/RingCentralIntegration/backend/test_ringcentral_to_jobber.py', reloading
+2025-06-30 16:53:12,210 - werkzeug - INFO -  * Restarting with stat
+2025-06-30 16:53:12,371 - __main__ - INFO - Starting web interface on port 8080
+2025-06-30 16:53:12,371 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-30 16:53:12,388 - werkzeug - WARNING -  * Debugger is active!
+2025-06-30 16:53:12,396 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-30 16:53:22,303 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 16:53:22] "GET / HTTP/1.1" 200 -
+2025-06-30 16:53:46,642 - werkzeug - INFO - 10.0.0.131 - - [30/Jun/2025 16:53:46] "GET / HTTP/1.1" 200 -
+2025-06-30 16:53:46,744 - werkzeug - INFO - 10.0.0.131 - - [30/Jun/2025 16:53:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-30 22:43:02,759 - __main__ - INFO - Starting enhanced integration with real-time notifications
+2025-06-30 22:43:03,207 - __main__ - INFO - Successfully authenticated with RingCentral
+2025-06-30 22:43:03,207 - __main__ - INFO - RingCentral authentication successful
+2025-06-30 22:43:03,208 - __main__ - INFO - Sync service thread - checking every 5 minutes
+2025-06-30 22:43:03,208 - __main__ - INFO - Starting call synchronization
+2025-06-30 22:43:03,453 - __main__ - INFO - Retrieved 0 calls from RingCentral
+2025-06-30 22:43:03,455 - __main__ - INFO - Sync completed: 0 calls processed, 0 errors
+2025-06-30 22:43:03,689 - __main__ - ERROR - Failed to register webhook: {"errorCode":"SUB-528","message":"[SubscriptionWebhook] application permission is required for [WebHook] transport","errors":[{"errorCode":"SUB-528","message":"[SubscriptionWebhook] application permission is required for [WebHook] transport","transportType":"WebHook","permissionName":"SubscriptionWebhook"}],"transportType":"WebHook","permissionName":"SubscriptionWebhook"}
+2025-06-30 22:43:03,690 - __main__ - ERROR - Failed to start notification service - webhook setup failed
+2025-06-30 22:43:03,690 - __main__ - ERROR - Failed to start notification service
+2025-06-30 22:46:28,542 - __main__ - INFO - Starting web interface on port 8080
+2025-06-30 22:46:28,542 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-30 22:46:28,618 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.0.0.131:8080
+2025-06-30 22:46:28,618 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-30 22:46:28,619 - werkzeug - INFO -  * Restarting with stat
+2025-06-30 22:46:28,716 - __main__ - INFO - Starting web interface on port 8080
+2025-06-30 22:46:28,716 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-30 22:46:28,727 - werkzeug - WARNING -  * Debugger is active!
+2025-06-30 22:46:28,732 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-30 22:46:38,183 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 22:46:38] "GET / HTTP/1.1" 200 -
+2025-06-30 23:25:33,565 - __main__ - INFO - Starting web interface on port 8080
+2025-06-30 23:25:33,565 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-30 23:25:33,611 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.0.0.131:8080
+2025-06-30 23:25:33,612 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-30 23:25:33,612 - werkzeug - INFO -  * Restarting with stat
+2025-06-30 23:25:33,708 - __main__ - INFO - Starting web interface on port 8080
+2025-06-30 23:25:33,708 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-30 23:25:33,720 - werkzeug - WARNING -  * Debugger is active!
+2025-06-30 23:25:33,725 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-30 23:27:27,151 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:27:27] "GET / HTTP/1.1" 200 -
+2025-06-30 23:33:13,648 - werkzeug - INFO -  * Detected change in '/Users/nevinmadathilate/Desktop/RingCentralIntegration/backend/ringcentral_to_jobber.py', reloading
+2025-06-30 23:33:13,706 - werkzeug - INFO -  * Restarting with stat
+2025-06-30 23:33:13,882 - __main__ - INFO - Starting web interface on port 8080
+2025-06-30 23:33:13,882 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-30 23:33:13,903 - werkzeug - WARNING -  * Debugger is active!
+2025-06-30 23:33:13,909 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-30 23:43:14,072 - werkzeug - INFO -  * Detected change in '/Users/nevinmadathilate/Desktop/RingCentralIntegration/backend/ringcentral_to_jobber.py', reloading
+2025-06-30 23:43:14,141 - werkzeug - INFO -  * Restarting with stat
+2025-06-30 23:43:14,349 - __main__ - INFO - Starting web interface on port 8080
+2025-06-30 23:43:14,349 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-30 23:43:14,372 - werkzeug - WARNING -  * Debugger is active!
+2025-06-30 23:43:14,377 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-30 23:45:09,065 - werkzeug - INFO -  * Detected change in '/Users/nevinmadathilate/Desktop/RingCentralIntegration/backend/ringcentral_to_jobber.py', reloading
+2025-06-30 23:45:09,119 - werkzeug - INFO -  * Restarting with stat
+2025-06-30 23:45:09,293 - __main__ - INFO - Starting web interface on port 8080
+2025-06-30 23:45:09,293 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-30 23:45:09,312 - werkzeug - WARNING -  * Debugger is active!
+2025-06-30 23:45:09,317 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-30 23:47:04,095 - werkzeug - INFO -  * Detected change in '/Users/nevinmadathilate/Desktop/RingCentralIntegration/backend/ringcentral_to_jobber.py', reloading
+2025-06-30 23:47:04,135 - werkzeug - INFO -  * Restarting with stat
+2025-06-30 23:47:04,309 - __main__ - INFO - Starting web interface on port 8080
+2025-06-30 23:47:04,309 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-30 23:47:04,327 - werkzeug - WARNING -  * Debugger is active!
+2025-06-30 23:47:04,333 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-30 23:47:10,609 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:10] "GET / HTTP/1.1" 200 -
+2025-06-30 23:47:10,689 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:10] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:47:10,689 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:10] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:47:15,689 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:15] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:47:20,687 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:20] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:47:20,688 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:20] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:47:25,689 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:25] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:47:30,691 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:30] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:47:30,692 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:30] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:47:35,688 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:35] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:47:40,687 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:40] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:47:40,688 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:40] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:47:45,084 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:45] "GET /auth/jobber HTTP/1.1" 200 -
+2025-06-30 23:47:46,253 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:46] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:47:51,271 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:51] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:47:51,272 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:51] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:47:56,259 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:47:56] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:48:01,254 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:01] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:48:01,255 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:01] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:48:06,255 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:06] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:48:09,852 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:09] "GET /auth/jobber HTTP/1.1" 200 -
+2025-06-30 23:48:11,254 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:11] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:48:11,255 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:11] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:48:16,258 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:16] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:48:21,259 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:21] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:48:21,261 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:21] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:48:26,259 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:26] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:48:31,256 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:31] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:48:31,257 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:31] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:48:36,257 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:36] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:48:41,255 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:41] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:48:41,256 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:41] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:48:46,254 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:46] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:48:51,258 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:51] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:48:51,258 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:51] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:48:56,253 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:48:56] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:49:01,256 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:01] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:49:01,256 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:01] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:49:06,255 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:06] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:49:11,253 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:11] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:49:11,254 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:11] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:49:30,368 - werkzeug - INFO -  * Detected change in '/Users/nevinmadathilate/Desktop/RingCentralIntegration/backend/ringcentral_to_jobber.py', reloading
+2025-06-30 23:49:30,423 - werkzeug - INFO -  * Restarting with stat
+2025-06-30 23:49:30,609 - __main__ - INFO - Starting web interface on port 8080
+2025-06-30 23:49:30,609 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-30 23:49:30,627 - werkzeug - WARNING -  * Debugger is active!
+2025-06-30 23:49:30,633 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-30 23:49:44,962 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:44] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:49:44,962 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:44] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:49:45,685 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:45] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:49:46,659 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:46] "GET / HTTP/1.1" 200 -
+2025-06-30 23:49:46,703 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:46] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:49:46,705 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:46] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:49:48,772 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:48] "GET / HTTP/1.1" 200 -
+2025-06-30 23:49:48,796 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:48] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:49:48,796 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:48] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:49:49,876 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:49] "GET /auth/jobber HTTP/1.1" 200 -
+2025-06-30 23:49:53,797 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:53] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:49:58,800 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:58] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:49:58,800 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:49:58] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:50:04,254 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:04] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:50:09,258 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:09] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:50:09,258 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:09] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:50:14,251 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:14] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:50:19,280 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:19] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:50:19,281 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:19] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:50:24,261 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:24] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:50:29,254 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:29] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:50:29,257 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:29] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:50:34,251 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:34] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:50:39,253 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:39] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:50:39,253 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:39] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:50:44,252 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:44] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:50:49,323 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:49] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:50:49,325 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:49] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:50:54,258 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:54] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:50:59,253 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:59] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:50:59,254 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:50:59] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:51:49,330 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:51:49] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:51:49,335 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:51:49] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:52:49,358 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:52:49] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:52:49,361 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:52:49] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:53:49,367 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:53:49] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:53:49,373 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:53:49] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:54:49,414 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:54:49] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:54:49,414 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:54:49] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:55:49,440 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:55:49] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:55:49,444 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:55:49] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:56:15,744 - werkzeug - INFO -  * Detected change in '/Users/nevinmadathilate/Desktop/RingCentralIntegration/backend/ringcentral_to_jobber.py', reloading
+2025-06-30 23:56:15,788 - werkzeug - INFO -  * Restarting with stat
+2025-06-30 23:56:15,967 - __main__ - INFO - Starting web interface on port 8080
+2025-06-30 23:56:15,967 - __main__ - INFO - Open http://localhost.8080 in your browser
+2025-06-30 23:56:15,986 - werkzeug - WARNING -  * Debugger is active!
+2025-06-30 23:56:15,990 - werkzeug - INFO -  * Debugger PIN: 124-771-701
+2025-06-30 23:56:19,609 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:19] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:56:19,610 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:19] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:56:21,792 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:21] "GET / HTTP/1.1" 200 -
+2025-06-30 23:56:21,827 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:21] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:56:21,829 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:21] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:56:25,392 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:25] "GET /auth/jobber HTTP/1.1" 200 -
+2025-06-30 23:56:27,248 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:27] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:56:32,246 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:32] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:56:32,246 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:32] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:56:37,246 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:37] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:56:42,247 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:42] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:56:42,250 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:42] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:56:47,248 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:47] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:56:52,251 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:52] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:56:52,252 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:52] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:56:57,247 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:56:57] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:57:02,247 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:57:02] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:57:02,249 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:57:02] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:57:07,256 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:57:07] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:57:12,248 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:57:12] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:57:12,250 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:57:12] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:57:17,255 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:57:17] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:57:22,247 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:57:22] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:57:22,249 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:57:22] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:57:43,715 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:57:43] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:57:43,716 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:57:43] "GET /api/logs HTTP/1.1" 200 -
+2025-06-30 23:57:46,828 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:57:46] "GET /api/status HTTP/1.1" 200 -
+2025-06-30 23:57:49,428 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2025 23:57:49] "[31m[1mGET /callback HTTP/1.1[0m" 400 -

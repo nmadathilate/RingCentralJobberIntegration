@@ -1006,9 +1006,267 @@ class TestCallNotificationManager(unittest.TestCase):
             #verify db storage was called with None customer Id
             call_args = mock_db.store_call_notifications.call_args[0][0]
             self.assertIsNone(call_args['customer_id'])
-            
 
+class TestNotificationDashboardApp(unittest.TestCase):
+    #Testing the flask dashboard app
+
+    def setUp(self):
+        self.mock_call_manager = Mock(spec=CallNotificationManager)
+        self.mock_sync_service = Mock()
+        self.mock_call_manager.process_call_event = Mock(return_value=None)
+        self.app = NotificationDashboardApp(self.mock_call_manager, self.mock_sync_service)
+        self.client = self.app.app.test_client()
+        self.app.app.config['TESTING'] = True
+
+    def test_dashboard_route(self):
+        #Test HTML route
+        response = self.client.get('/dashboard')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'RingCentral Call Notifications', response.data)
+        self.assertIn(b'Real-time incoming call monitoring', response.data)
+    
+    def test_get_active_calls_route(self):
+        #tests the active calls api route 
+        mock_call = Mock()
+        mock_call.to_dict.return_value = {
+            'call_id': 'call_123',
+            'from_number': '+15551234567',
+            'caller_name': 'Test Customer',
+            'status': 'incoming'
+
+        }
+        self.mock_call_manager.active_calls = {'call_123': mock_call}
+        response  = self.client.get('/api/calls/active')
+
+        self.assertEqual(response.status_code, 200)
+        data = json.loads(response.data)
+        self.assertIn('calls', data)
+        self.assertEqual(len(data['calls']), 1)
+        self.assertEqual(data['calls'][0]['call_id'], 'call_123')
+    
+    def test_get_customer_jobber_link_success(self):
+        mock_call = Mock()
+        mock_call.customer_info = {
+            'id': 'customer_123',
+            'name': 'Test Customer',
+            'jobber_uri': 'https://test.getjobber.com/clients/customer_123'
+        }
+        self.mock_call_manager.active_calls = {'call_123': mock_call}
+
+        response = self.client.get('/api/calls/call_123/customer')
+
+        self.assertEqual(response.status_code, 200)
+        data = json.loads(response.data)
+        self.assertIn('customer', data)
+        self.assertIn('jobber_link', data)
+    
+    def test_get_customer_in_jobber_link_not_found(self):
+        self.mock_call_manager.active_calls = {}
+        response = self.client.get('/api/calls/call_123/customer')
+        self.assertEqual(response.status_code, 404)
+        data = json.loads(response.data)
+        self.assertIn('error', data)
+    
+    def test_create_call_note_success(self):
+        mock_call = Mock()
+        mock_call.customer_info = {'id': 'customer_123'}
+        mock_call.start_time = datetime.now(timezone.utc)
+        mock_call.from_number = '+15551234567'
+        mock_call.caller_name = 'Test Customer'
+        mock_call.status = 'incoming'
+
+        self.mock_call_manager.active_calls = {'call_123': mock_call}
+        self.mock_sync_service.jobber.create_customer_note.return_value = True
+
+        response = self.client.post('/api/calls/call_123/create-note', json ={'note': 'Test note content'})
+        self.assertEqual(response.status_code, 200)
+        data = json.loads(response.data)
+        self.assertTrue(data['success'])
+        self.assertEqual(data['message'], 'Note created successfully')
+
+        self.mock_sync_service.jobber.create_customer_note.assert_called_once()
+
+        #verify note content was passed 
+        call_args = self.mock_sync_service.jobber.create_customer_note.call_args
+        customer_id = call_args[0][0]
+        note_content = call_args[0][1]
+
+        self.assertEqual(customer_id, 'customer_123')
+        self.assertIn('Test note content', note_content)
+        self.assertIn('Test Customer', note_content)
+        self.assertIn('+15551234567', note_content)
+    
+    def test_create_call_note_failure(self):
+        mock_call = Mock()
+        mock_call.customer_info = {'id': 'customer_123'}
+        mock_call.start_time = datetime.now(timezone.utc)
+        mock_call.from_number = '+15551234567'
+        mock_call.caller_name = 'Test Customer'
+        mock_call.status = 'incoming'
+
+        self.mock_call_manager.active_calls = {'call_123': mock_call}
+        self.mock_sync_service.jobber.create_customer_note.return_value = False
+
+        response = self.client.post('/api/calls/call_123/create-note', json={'note': 'Test note content'})
+
+        self.assertEqual(response.status_code, 500)
+        data = json.loads(response.data)
+        self.assertIn('error', data)
+    
+    def test_create_call_note_exception(self):
+        mock_call = Mock()
+        mock_call.customer_info = {'id': 'customer_123'}
+        mock_call.start_time = datetime.now(timezone.utc)
+        mock_call.from_number = '+15551234567'
+        mock_call.caller_name = 'Test Customer'
+        mock_call.status = 'incoming'
+
+        self.mock_call_manager.active_calls = {'call_123': mock_call}
+        self.mock_sync_service.jobber.create_customer_note.side_effect = Exception('API Error')
+
+        response = self.client.post('/api/calls/call_123/create-note', json={'note': 'Test note content'})
+
+        self.assertEqual(response.status_code, 500)
+        data = json.loads(response.data)
+        self.assertEqual(data['error'], 'Failed to create note')
+    
+    def test_create_call_note_no_json_data(self):
+        mock_call = Mock()
+        mock_call.customer_info = {'id': 'customer_123'}
+        mock_call.start_time = datetime.now(timezone.utc)
+        mock_call.from_number = '+15551234567'
+        mock_call.caller_name = 'Test Customer'
+        mock_call.status = 'incoming'
+
+        self.mock_call_manager.active_calls = {'call_123': mock_call}
+        self.mock_sync_service.jobber.create_customer_note.return_value = True
+
+        response = self.client.post('/api/calls/call_123/create-note')
+
+        #Should still work with no json value 
+        self.assertEqual(response.status_code, 200)
+        data = json.loads(response.data)
+        self.assertTrue(data['success'])
+
+        call_args = self.mock_sync_service.jobber.create_customer_note.call_args
+        note_content = call_args[0][1]
+        self.assertIn('No additional notes', note_content)
+    
+    def test_get_sync_status_route(self):
+        self.mock_sync_service.is_running = True
+        self.mock_call_manager.webhook_subscription_id = 'webhook_123'
+        self.mock_call_manager.active_calls = {'call_123': Mock()}
+
+        response = self.client.get('/api/sync/status')
+        self.assertEqual(response.status_code, 200)
+        data = json.loads(response.data)
+        self.assertTrue(data['sync_running'])
+        self.assertTrue(data['webhook_active'])
+        self.assertEqual(data['active_calls'], 1)
+    
+    @patch('ringcentral_to_jobber.config')
+    def test_hadnle_ringcentral_webhook_validation(self, mock_config):
+        mock_config.webhook_validation_token = 'test-token-123'
+
+        response = self.client.post('/ringcentral/webhook', 
+                                    headers={'Validation-Token': 'test-token-123'})
         
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.headers.get('Validation-Token'), 'test-token-123')
+
+    @patch('ringcentral_to_jobber.config')
+    def test_handle_ringcentral_webhook_invalid_token(self, mock_config):
+        #Test webhook with invalid validation token
+        mock_config.webhook_validation_token = 'test-token-123'
+        response = self.client.post('/ringcentral/webhook',
+                                    headers={'Validation-token': 'wrong-token'})
+        self.assertEqual(response.status_code, 401)
+    
+    @patch('ringcentral_to_jobber.config')
+    def test_handle_ringcentral_webhook_event_processing(self, mock_config):
+        mock_config.webhook_validation_token = 'test-token-123'
+        event_data = {
+            'body': {
+                'telephonySessionsEvent': {
+                    'telephonySessions': [
+                        {
+                    'id': 'session_123',
+                    'status': 'Proceeding',
+                    'direction': 'Inbound'
+                        }
+                    ]
+                }
+            }
+        }
+        self.mock_call_manager.process_call_event.reset_mock()
+        response = self.client.post('/ringcentral/webhook',
+                                    json=event_data,
+                                    headers={'Validation-Token': 'test-token-123'})
+        if response.status_code != 200:
+            print(f"Response status: {response.status_code}")
+            print(f"Response data: {response.data}")
+            try:
+                error_data = json.loads(response.data)
+                print(f"Error details: {error_data}")
+            except:
+                pass
+
+        self.assertEqual(response.status_code, 200)
+        self.mock_call_manager.process_call_event.assert_called_once_with(event_data)
+
+    @patch('ringcentral_to_jobber.config')
+    def test_handle_ringcentral_webhook_validation(self, mock_config):
+        """Test webhook validation response"""
+        mock_config.webhook_validation_token = 'test-token-123'
+    
+    # Test the validation response (what RingCentral sends during webhook setup)
+        response = self.client.post('/ringcentral/webhook',
+                              headers={'Validation-Token': 'test-token-123'})
+    
+        self.assertEqual(response.status_code, 200)
+    
+    # Should return validation token
+        data = json.loads(response.data)
+        self.assertEqual(data['validationToken'], 'test-token-123')
+    
+        #Should set response header
+        self.assertEqual(response.headers.get('Validation-Token'), 'test-token-123')
+
+    @patch('ringcentral_to_jobber.config')
+    def test_handle_ringcentral_webhook_invalid_token(self, mock_config):
+        mock_config.webhook_validation_token = 'test-token-123'
+    
+        event_data = {
+            'body': {
+            'telephonySessionsEvent': {
+                'telephonySessions': [
+                    {
+                        'id': 'session_123',
+                        'status': 'Proceeding',
+                        'direction': 'Inbound'
+                        }
+                    ]
+                }
+            }
+        }
+    
+        # Send with wrong validation token
+        response = self.client.post('/ringcentral/webhook',
+                              json=event_data,
+                              headers={'Validation-Token': 'wrong-token'})
+    
+        self.assertEqual(response.status_code, 401)
+        data = json.loads(response.data)
+        self.assertEqual(data['error'], 'Invalid validation token')
+
+
+
+
+
+    
+
+
+
 
 if __name__ == '__main__':
     '''
@@ -1018,7 +1276,7 @@ if __name__ == '__main__':
     for stat in top_stats:
         print(stat)
 '''
-    unittest.main()
+    unittest.main(verbosity=2)
     
         
 

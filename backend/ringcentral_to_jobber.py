@@ -809,14 +809,15 @@ class NotificationDashboardApp:
                 logger.warning("Invalid webhook validation token")
                 return jsonify({'error': 'Invalid validation token'}), 401
             
-            if request.method == 'POST' and request.headers.get('Validation-Token'):
+            if request.method == 'POST' and validation_token and not request.get_json(silent=True):
                 response = jsonify({'validationToken': validation_token})
                 response.headers['Validation-Token'] = validation_token
                 return response
             try:
-                event_data = request.json
-                logger.debug(f"Received webhook: {json.dumps(event_data, indent=2)}")
-                self.call_manager.process_call_event(event_data)
+                event_data = request.get_json(silent=True)
+                if event_data:
+                    logger.debug(f"Received webhook: {json.dumps(event_data, indent=2)}")
+                    self.call_manager.process_call_event(event_data)
                 return jsonify({'status': 'success'}), 200
             except Exception as e:
                 logger.error(f"Error processing webhook: {e}")
@@ -851,7 +852,7 @@ class NotificationDashboardApp:
             if not call or not call.customer_info:
                 return jsonify({'error': 'Call or customer not found'}), 404
             try:
-                note_data = request.json
+                note_data = request.get_json(silent=True) or {}
                 note_content = f"""Call Log - {call.start_time.strftime('%B %d, %Y at %I:%M %p')}
 From: {call.from_number}
 Customer: {call.caller_name}

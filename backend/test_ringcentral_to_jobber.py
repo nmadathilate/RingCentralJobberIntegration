@@ -776,10 +776,239 @@ class TestCallNotificationManager(unittest.TestCase):
         self.notification_manager._handle_call_ended('session_123')
 
         self.assertEqual(self.notification_manager.active_calls['session_123'].status, 'ended')
+
+        self.assertIn('session_123', self.notification_manager.active_calls)
+
+
+    @patch('threading.Timer')
+    def test_handle_call_ended_with_timer_mock(self, mock_timer):
+        #Handling call ended with a mock timer 
+        mock_timer_instance = Mock()
+        mock_timer.return_value = mock_timer_instance
+
+        call_time = datetime.now(timezone.utc)
+        test_call = IncomingCall(
+            call_id='session_123',
+            from_number='+15551234567',
+            to_number='+15559876543',
+            caller_name='Test Customer',
+            start_time=call_time,
+            status='incoming'
+        )
+        self.notification_manager.active_calls['session_123'] = test_call
         
+        #end the call
+        self.notification_manager._handle_call_ended('session_123')
 
+        #Make sure the status is updates 
+        self.assertEqual(self.notification_manager.active_calls['session_123'].status, 'ended')
 
+        #Verifys timer was created and started 
+        mock_timer.assert_called_once_with(30.0, unittest.mock.ANY)
+        mock_timer_instance.start.assert_called_once()
 
+        #veryify the daemon was set 
+        self.assertTrue(mock_timer_instance.daemon)
+    
+    def test_handle_call_ended_nonexistent_call(self):
+        self.notification_manager._handle_call_ended('nonexistent_call_id')
+        
+        # Should not affect active calls
+        self.assertEqual(len(self.notification_manager.active_calls), 0)
+
+    def test_handle_call_ended_delayed_removal(self):
+        call_time = datetime.now(timezone.utc)
+        test_call = IncomingCall(
+            call_id='session_123',
+            from_number='+15551234567',
+            to_number='+15559876543',
+            caller_name='Test Customer',
+            start_time=call_time,
+            status='incoming'
+        )
+
+        original_method = self.notification_manager._handle_call_ended
+
+        def quick_handle_call_ended(call_id):
+            if call_id in self.notification_manager.active_calls:
+                call = self.notification_manager.active_calls[call_id]
+                call.status = 'ended'
+
+                timer = threading.Timer(0.1, lambda: self.notification_manager.active_calls.pop(call_id, None))
+                timer.daemon = True
+                timer.start()
+        self.notification_manager._handle_call_ended = quick_handle_call_ended
+        self.notification_manager.active_calls['session_123'] = test_call
+
+        #end call
+        self.notification_manager._handle_call_ended('session_123')
+
+        #call should still be in the active calls 
+        self.assertIn('session_123', self.notification_manager.active_calls)
+        self.assertEqual(self.notification_manager.active_calls['session_123'].status, 'ended')
+
+        time.sleep(0.2)
+        # Should be removed now
+        self.assertNotIn('session_123', self.notification_manager.active_calls)
+        
+        # Restore original method
+        self.notification_manager._handle_call_ended = original_method
+    
+    @patch('ringcentral_to_jobber.config.mock_mode', True)
+    def test_lookup_customer_in_jobber_mock(self):
+        result = self.notification_manager.lookup_customer_in_jobber('+15551234567')
+        
+        self.assertIsNotNone(result)
+        self.assertEqual(result['id'], 'mock_customer_123')
+        self.assertEqual(result['name'], 'Test Customer')
+        self.assertIn('jobber_uri', result)
+    
+    @patch('ringcentral_to_jobber.config.mock_mode', False)
+    def test_lookup_customer_in_jobber_real(self):
+        """Test customer lookup in real mode"""
+        self.mock_jobber.find_customer_by_phone.return_value = {
+            'id': 'customer_123',
+            'name': 'John Doe'
+        }
+        
+        result = self.notification_manager.lookup_customer_in_jobber('+15551234567')
+        
+        self.assertIsNotNone(result)
+        self.assertEqual(result['id'], 'customer_123')
+        self.assertEqual(result['name'], 'John Doe')
+        self.mock_jobber.find_customer_by_phone.assert_called_once_with('+15551234567')
+    
+    def test_process_call_events(self):
+        """Test processing call events"""
+        event_data = {
+            'body': {
+                'telephonySessionsEvent': {
+                    'telephonySessions': [
+                        {
+                            'id': 'session_123',
+                            'status': 'Proceeding',
+                            'direction': 'Inbound',
+                            'from': {'phoneNumber': '+15551234567'},
+                            'to': {'phoneNumber': '+15559876543'}
+                        }
+                    ]
+                }
+            }
+        }
+        
+        with patch.object(self.notification_manager, '_handle_telephony_session') as mock_handle:
+            self.notification_manager.process_call_events(event_data)
+            mock_handle.assert_called_once()
+    @patch('ringcentral_to_jobber.db_manager')
+    def test_handle_telephony_session_incoming(self, mock_db):
+        """Test handling telephony session for incoming calls"""
+        session_data = {
+            'id': 'session_123',
+            'status': 'Proceeding',
+            'direction': 'Inbound',
+            'from': {'phoneNumber': '+15551234567'},
+            'to': {'phoneNumber': '+15559876543'}
+        }
+        
+        with patch.object(self.notification_manager, 'lookup_customer_in_jobber') as mock_lookup:
+            mock_lookup.return_value = {
+                'id': 'customer_123',
+                'name': 'Test Customer',
+                'phone': '+15551234567'
+            }
+            self.notification_manager._handle_telephony_session(session_data)
+
+            #Verify call was added to active calls 
+            self.assertIn('session_123', self.notification_manager.active_calls)
+            call = self.notification_manager.active_calls['session_123']
+            self.assertEqual(call.from_number, '+15551234567')
+            self.assertEqual(call.caller_name, 'Test Customer')
+            self.assertEqual(call.status, 'incoming')
+
+            mock_lookup.assert_called_once_with('+15551234567')
+
+            #makesure it was stored in db
+            mock_db.store_call_notifications.assert_called_once()
+
+    def test_handle_telephony_session_ended(self):
+        session_data_ended = {
+            'id': 'session_123',
+            'status': 'Disconnected'
+        }
+        #adds an call thats going to end 
+        call_time = datetime.now(timezone.utc)
+        
+        test_call = IncomingCall(
+            call_id='session_123',
+            from_number='+15551234567',
+            to_number='+15559876543',
+            caller_name='Test Customer',
+            start_time=call_time,
+            status='incoming'
+        )
+        self.notification_manager.active_calls['session_123'] = test_call
+
+        #Handles the session ending
+        with patch('threading.Timer') as mock_timer:
+            mock_timer_instance = Mock()
+            mock_timer.return_value = mock_timer_instance
+            self.notification_manager._handle_telephony_session(session_data_ended)
+
+            self.assertEqual(self.notification_manager.active_calls['session_123'].status, 'ended')
+            mock_timer.assert_called_once()
+
+    def test_handle_telephony_session_other_status(self):
+        #Handles with other statuses 
+        session_data = {
+            'id': 'session_123',
+            'status': 'Ringing',  # Not Proceeding or Disconnected/Finished
+            'direction': 'Inbound'
+            }
+        initial_count = len(self.notification_manager.active_calls)
+        self.notification_manager._handle_telephony_session(session_data)
+
+        #no change should happen
+        self.assertEqual(len(self.notification_manager.active_calls), initial_count)
+    
+    def test_handle_telephony_session_outbound(self):
+        session_data = {
+            'id': 'session_123',
+            'status': 'Proceeding',
+            'direction': 'Outbound',  # Not Inbound
+            'from': {'phoneNumber': '+15551234567'},
+            'to': {'phoneNumber': '+15559876543'}
+        }
+        inital_count = len(self.notification_manager.active_calls)
+        self.notification_manager._handle_telephony_session(session_data)
+
+        self.assertEqual(len(self.notification_manager.active_calls), inital_count)
+
+    @patch('ringcentral_to_jobber.db_manager')
+    def test_handle_incoming_call_no_customer(self, mock_db):
+        session_data = {
+            'id': 'session_456',
+            'from': {'phoneNumber': '+15559999999'},
+            'to': {'phoneNumber': '+15559876543'}
+        }
+
+        #Mock customer lookup returning none 
+        with patch.object(self.notification_manager, 'lookup_customer_in_jobber') as mock_lookup:
+            mock_lookup.return_value = None
+            
+            self.notification_manager._handle_incoming_call(session_data)
+            #make sure call was added with unknown caller 
+            self.assertIn('session_456', self.notification_manager.active_calls)
+            call = self.notification_manager.active_calls['session_456']
+            self.assertEqual(call.from_number, '+15559999999')
+            self.assertEqual(call.caller_name, 'Unknown Caller')
+            self.assertIsNone(call.customer_info)
+
+            #verify db storage was called with None customer Id
+            call_args = mock_db.store_call_notifications.call_args[0][0]
+            self.assertIsNone(call_args['customer_id'])
+            
+
+        
 
 if __name__ == '__main__':
     '''

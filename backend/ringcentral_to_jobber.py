@@ -556,7 +556,7 @@ class CallNotificationManager:
 
         if status == 'Proceeding' and session_data.get('direction') == 'Inbound':
             #call is happening right now 
-            self._handle_telephony_session(session_data)
+            self._handle_incoming_call(session_data)
         elif status in ['Disconnected', 'Finished']:
             self._handle_call_ended(session_id)
 
@@ -598,7 +598,9 @@ class CallNotificationManager:
             call.status = 'ended'
             logger.info(f"Call ended: {call.from_number}")
             #Keep in active calls for a short time for dashboard display 
-            threading.Thread(30.0, lambda: self.active_calls.pop(call_id, None)).start()
+            timer = threading.Timer(30.0, lambda: self.active_calls.pop(call_id, None))
+            timer.daemon = True
+            timer.start()
     
     def lookup_customer_in_jobber(self, phone_number):
         #looks up the customers info in jobber 

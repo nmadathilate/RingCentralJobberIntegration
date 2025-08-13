@@ -1318,9 +1318,112 @@ class TestDatabaseEnhancements(unittest.TestCase):
                                   """)
             result = cursor.fetchone()
             self.assertIsNotNone(result)
-            
 
+
+class TestServiceIntegration(unittest.TestCase):
+    def setUp(self):
+        #Set  up test environment
+        self.temp_dir = tempfile.mkdtemp()
+        self.original_config = ringcentral_to_jobber.config
+        self.original_db_manager = ringcentral_to_jobber.db_manager
+
+        #create test config 
+        test_config = Config()
+        test_config.mock_mode = True
+        test_config.data_dir = self.temp_dir 
+        test_config.notification_port = 5555
+
+        ringcentral_to_jobber.config = test_config
+        test_db_path = os.path.join(self.temp_dir, 'test.db')
+        ringcentral_to_jobber.db_manager = DatabaseManager(test_db_path)
+    
+    def tearDown(self):
+        ringcentral_to_jobber.config = self.original_config
+        ringcentral_to_jobber.db_manager = self.original_db_manager
+        shutil.rmtree(self.temp_dir)
+    
+    @patch('threading.Thread')
+    def test_start_sync_service(self, mock_thread):
+        sync_service = RingCentralJobberSync()
+        sync_service.start_sync_service()
+
+        self.assertTrue(sync_service.is_running)
+        mock_thread.assert_called_once()
+
+    def test_stop_sync_service(self):
+        sync_service = RingCentralJobberSync()
+        sync_service.is_running = True
+
+        sync_service.stop_sync_service()
+        self.assertFalse(sync_service.is_running)
+
+    @patch('threading.Thread')
+    def test_start_notification_service_success(self, mock_thread):
+        sync_service = RingCentralJobberSync()
+        with patch.object(sync_service.call_manager, 'setup_ringcentral_webhooks') as mock_webhook:
+            mock_webhook.return_value = {'id': 'webhook_123'}
+            result = sync_service.start_notification_service(port=5555)
+            self.assertTrue(result)
+            mock_thread.assert_called_once()
+
+    def test_start_notification_service_failure(self):
+        sync_service = RingCentralJobberSync()
+
+        with patch.object(sync_service.call_manager, 'setup_ringcentral_webhooks') as mock_webhook:
+            mock_webhook.return_value = None
+
+            #override mock mode for this test 
+            with patch('ringcentral_to_jobber.config.mock_mode', False):
+                result = sync_service.start_notification_service(port=5555)
+
+                self.assertFalse(result)
+
+    @patch('schedule.run_pending')
+    @patch('time.sleep')
+    def test_run_scheduler(self, mock_sleep, mock_run_pending):
+        #Tests scheduler loop
+        sync_service = RingCentralJobberSync()
+        sync_service.is_running = True
+
+        mock_sleep.side_effect = KeyboardInterrupt()
+
+        try:
+            sync_service._run_scheduler()
+        except KeyboardInterrupt:
+            pass
+
+        mock_run_pending.assert_called()
+
+    @patch('ringcentral_to_jobber.db_manager')
+    @patch('ringcentral_to_jobber.RingCentralClient')
+    @patch('ringcentral_to_jobber.JobberClient')
+    def test_sync_calls_with_errors(self, mock_jobber_class, mock_ringcentral_class, mock_db):
+        mock_ringcentral_instance = Mock()
+        mock_jobber_instance = Mock()
+
+        mock_ringcentral_class.return_value = mock_ringcentral_instance
+        mock_jobber_class.return_value = mock_jobber_instance
         
+        
+
+        #mock calls with a failed one 
+        mock_calls = [
+            {'id': 'call_1', 'recording': {'contentUri': '/rec1'}, 'from': {'phoneNumber': '+1555123'}},
+            {'id': 'call_2', 'recording': {'contentUri': '/rec2'}, 'from': {'phoneNumber': '+1555456'}}
+        ]
+
+        mock_ringcentral_instance.get_recent_calls.return_value = mock_calls
+
+
+        sync_service = RingCentralJobberSync()
+
+        with patch.object(sync_service, '_process_call') as mock_process:
+            mock_process.side_effect = [True, Exception('Test error')]
+
+            sync_service.sync_calls()
+
+            #Should have called log_sync result with 1 success and 1 fail 
+            mock_db.log_sync_result.assert_called_once_with(1, 1, 'completed_with_errors')
 
 
     

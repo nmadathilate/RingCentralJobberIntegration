@@ -1483,7 +1483,96 @@ class TestWebApplication(unittest.TestCase):
 
         response = self.client.get('/callback?code=test_code')
         self.assertEqual(response.status_code, 500)
+
+
+class TestErrorHandling(unittest.TestCase):
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+    
+    def tearDown(self):
+        shutil.rmtree(self.temp_dir)
+    
+    @patch('ringcentral_to_jobber.config.mock_mode', False)
+    @patch('requests.post')
+    def test_ringcentral_network_error(self, mock_post):
+        mock_post.side_effect = requests.exceptions.ConnectionError('Network error')
+        client = RingCentralClient()
+        result = client.authenticate()
+
+        self.assertFalse(result)
+        self.assertIsNone(client.access_token)
+    
+    @patch('ringcentral_to_jobber.config.mock_mode', False)
+    @patch('ringcentral_to_jobber.db_manager')
+    @patch('requests.post')
+    def test_ringcentral_successful_auth(self, mock_post, mock_db):
+        #Test successful auth in non-mock mode 
+        mock_response = Mock()
+        mock_response.raise_for_status = Mock()
+        mock_response.json.return_value = {
+            'access_token': 'test_token_123',
+            'expires_in': 3600
+        }
+        mock_post.return_value = mock_response
         
+        client = RingCentralClient()
+        result = client.authenticate()
+        
+        self.assertTrue(result)
+        self.assertEqual(client.access_token, 'test_token_123')
+        mock_db.store_token.assert_called_once()
+
+    @patch('ringcentral_to_jobber.config.mock_mode', False)
+    @patch('requests.post')
+    def test_ringcentral_various_network_errors(self, mock_post):
+        """Test various network error types"""
+        error_types = [
+            requests.exceptions.ConnectionError('Connection failed'),
+            requests.exceptions.Timeout('Request timed out'),
+            requests.exceptions.HTTPError('HTTP 500 Error'),
+            requests.exceptions.RequestException('Generic request error')
+        ]
+        
+        client = RingCentralClient()
+        
+        for error in error_types:
+            with self.subTest(error=type(error).__name__):
+                mock_post.side_effect = error
+                
+                result = client.authenticate()
+                
+                self.assertFalse(result, f"Should return False for {type(error).__name__}")
+    
+    @patch('ringcentral_to_jobber.config.mock_mode', False)
+    @patch('requests.post')
+    def test_jobber_api_error(self, mock_post):
+        mock_post.side_effect = requests.exceptions.HTTPError('HTTP 500 Error')
+
+        with patch('ringcentral_to_jobber.db_manager') as mock_db:
+            mock_db.get_token.return_value = None
+            client = JobberClient()
+            client.access_token = 'test_token'
+            result = client.find_customer_by_phone('+15551234567')
+            self.assertIsNone(result)
+    
+    def test_database_error_handling(self):
+        invalid_path = '/invalid/path/db.sqlite'
+        with self.assertRaises(Exception):
+            DatabaseManager(invalid_path)
+    
+    def test_call_processing_error_handling(self):
+        sync_service = RingCentralJobberSync()
+        
+        #invalid call data 
+        invalid_call = {'id': 'test_call'}
+
+        result = sync_service._process_call(invalid_call)
+        self.assertFalse(result)
+    
+
+
+
+
 
 
     

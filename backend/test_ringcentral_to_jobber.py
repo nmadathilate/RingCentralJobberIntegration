@@ -1570,17 +1570,490 @@ class TestErrorHandling(unittest.TestCase):
         self.assertFalse(result)
     
 
+class TestThreadSafety(unittest.TestCase):
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+        self.db_path = os.path.join(self.temp_dir, 'test_db')
+        self.db_manager = DatabaseManager(self.db_path)
+    
+    def tearDown(self):
+        shutil.rmtree(self.temp_dir)
+    
+    def test_concurrent_database_access(self):
+        import threading 
+        import time 
+        
+        results = []
+        errors = []
+
+        def worker(worker_id):
+            try: 
+                for i in range(10):
+                    call_data = {
+                        'id': f'call_{worker_id}_{i}',
+                        'phone_number': f'+1555{worker_id:03d}{i:04d}',
+                        'customer_id': f'customer_{worker_id}_{i}',
+                        'recording_url': f'http://example.com/recording_{worker_id}_{i}',
+                        'duration': 60 + i,
+                        'start_time': datetime.now(timezone.utc).isoformat()
+                    
+                    }
+                    self.db_manager.mark_call_processed(call_data)
+                    results.append(f'worker_{worker_id}_success_{i}')
+                    time.sleep(0.01)    #increases chance of race conditions
+            except Exception as e:
+                errors.append(f'worker_{worker_id}_error: {str(e)}')
+            
+        threads = []
+        for i in range(5):
+            thread = threading.Thread(target=worker, args=(i,))
+            threads.append(thread)
+            thread.start()
+        
+        for thread in threads:
+            thread.join()
+        
+        self.assertEqual(len(errors), 0, f'Concurrent access errors: {errors}')
+        self.assertEqual(len(results), 50)
+
+    def test_concurrent_call_manager_updates(self):
+        #Tests concurrent updates to call manager
+        with patch('ringcentral_to_jobber.db_manager'):
+            mock_jobber = Mock(spec=JobberClient)
+            call_manager = CallNotificationManager(mock_jobber)
+        
+            errors = []
+            def add_call(call_id):
+                try:
+                    call = IncomingCall(
+                        call_id=f'call_{call_id}',
+                        from_number=f'+1555{call_id:07d}',
+                        to_number='+15559876543',
+                        caller_name=f'Customer {call_id}',
+                        start_time=datetime.now(timezone.utc),
+                        status='incoming'
+                    )
+                    call_manager.active_calls[f'call_{call_id}'] = call
+                except Exception as e:
+                    errors.append(str(e))
+            
+            threads = []
+            for i in range(20):
+                thread = threading.Thread(target=add_call, args=(i,))
+                threads.append(thread)
+                thread.start()
+            
+            for thread in threads:
+                thread.join()
+            
+            self.assertEqual(len(errors), 0)
+            self.assertEqual(len(call_manager.active_calls), 20)
 
 
+class TestPerformance(unittest.TestCase):
+    #Tests applications performance 
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+        self.db_path = os.path.join(self.temp_dir, 'test_db')
+        self.db_manager = DatabaseManager(self.db_path)
+    
+    def tearDown(self):
+        shutil.rmtree(self.temp_dir)
+
+    def test_database_bulk_operations(self):
+        #Test db performance with bulk operations 
+
+        start_time = time.time()
+        
+        #add 1000 call records
+        for i in range(1000):
+            call_data = {
+                'id': f'call_{i:06d}',
+                'phone_number': f'+1555{i:07d}',
+                'customer_id': f'customer_{i}',
+                'recording_url': f'http://example.com/recording_{i}',
+                'duration': 60 + (i % 300),
+                'start_time': datetime.now(timezone.utc).isoformat()
+            }
+            self.db_manager.mark_call_processed(call_data)
+        
+        end_time = time.time()
+        elapsed = end_time - start_time
+
+        self.assertLess(elapsed, 10, f"Bulk insert took too long : {elapsed} seconds")
+
+        processed_count = 0
+        for i in range(1000):
+            if self.db_manager.is_call_processed(f'call_{i:06d}'):
+                processed_count += 1
+        
+        self.assertEqual(processed_count, 1000)
+
+    def test_memeory_usage_call_manager(self):
+        with patch('ringcentral_to_jobber.db_manager'):
+            mock_jobber = Mock(spec=JobberClient)
+            call_manager = CallNotificationManager(mock_jobber)
+
+            #add 1000 active calls 
+            for i in range(1000):
+                call = IncomingCall(
+                    call_id=f'call_{i:06d}',
+                    from_number=f'+155{i:07d}',
+                    to_number=f'+15559876543',
+                    caller_name=f'Customer {i}',
+                    start_time=datetime.now(timezone.utc),
+                    status='incoming',
+                    customer_info={'id': f'customer_{i}', 'name': f'Customer {i}'}
+                )
+                call_manager.active_calls[f'customer_{i:06d}'] = call
+            self.assertEqual(len(call_manager.active_calls), 1000)
+
+            #Test performance 
+            start_time = time.time()
+            active_calls_dict = [call.to_dict() for call in call_manager.active_calls.values()]
+            end_time = time.time()
+
+            elapsed = end_time - start_time
+
+            self.assertLess(elapsed, 1.0, "Serialization took too long")
+            self.assertEqual(len(active_calls_dict), 1000)
 
 
+class TestConfigurationEdgeCases(unittest.TestCase):
+    def setUp(self):
+        self.original_env = os.environ.copy()
+    
+    def tearDown(self):
+        os.environ.clear()
+        os.environ.update(self.original_env)
+    
+    def test_config_with_empty_strings(self):
+        os.environ.update({
+            'MOCK_MODE': 'true',
+            'RING_CENTRAL_CLIENT_ID': '',
+            'RINGCENTRAL_CLIENT_SECRET': '',
+            'RINGCENTRAL_JWT': '',
+            'JOBBER_CLIENT_ID': '',
+            'JOBBER_CLIENT_SECRET': ''
+        })
+        #works in mock_mode 
+        config = Config()
+        self.assertTrue(config.mock_mode)
+
+    def test_config_with_invalid_numbers(self):
+        os.environ.update({
+            'MOCK_MODE': 'true',
+            'CHECK_INTERVAL_MINUTES': 'not_a_number',
+            'NOTIFICATION_PORT': 'invalid_port' 
+        })
+        #Should go to defaults 
+        with self.assertRaises(ValueError):
+            Config()
+
+    def test_config_boolean_parsing(self):
+        test_cases = [
+           ('true', True),
+            ('True', True),
+            ('TRUE', True),
+            ('false', False),
+            ('False', False),
+            ('FALSE', False),
+            ('yes', False),  # Should be False for non-exact matches
+            ('1', False),
+            ('', False) 
+        ]
+        
+        for env_value, expected in test_cases:
+            os.environ.clear()
+            os.environ['MOCK_MODE'] = env_value
+            os.environ.update({
+                'RINGCENTRAL_CLIENT_ID': 'test',
+                'RINGCENTRAL_CLIENT_SECRET': 'test',
+                'RINGCENTRAL_JWT': 'test',
+                'JOBBER_CLIENT_ID': 'test',
+                'JOBBER_CLIENT_SECRET': 'test'
+            })
+
+            config = Config()
+            self.assertEqual(config.mock_mode, expected, 
+                             f"Failed for env_value='{env_value}', expected={expected}")
+            
+
+class TestDataValidation(unittest.TestCase):
+
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+        self.db_path = os.path.join(self.temp_dir, 'test_db')
+        self.db_manager = DatabaseManager(self.db_path)
+
+    def tearDown(self):
+        shutil.rmtree(self.temp_dir)
+    
+    @patch('ringcentral_to_jobber.config.mock_mode', False)
+    def test_phone_number_validation(self):
+        with patch('ringcentral_to_jobber.db_manager') as mock_db:
+            mock_db.get_token.return_value = None
+            client = JobberClient()
+            client.access_token = 'test_token'
+
+            test_numbers = [
+                '+15551234567',
+                '15551234567',
+                '(555) 123-4567',
+                '555.123.4567',
+                '555-123-4567',
+                '+1 (555) 123-4567'
+            ]
+
+            with patch('requests.post') as mock_post:
+                mock_response = Mock()
+                mock_response.json.return_value = {
+                    'data': {'clients': {'nodes': []}}
+
+                }
+                mock_response.raise_for_status = Mock()
+                mock_post.return_value = mock_response
+
+                for number in test_numbers:
+                    result = client.find_customer_by_phone(number)
+                    #should not crash and make API call
+                    self.assertIsNone(result)
+                
+                self.assertEqual(mock_post.call_count, len(test_numbers))
+
+    def test_call_data_validation(self):
+        sync_service = RingCentralJobberSync()
+
+        invalid_calls = [
+            {},
+            {'id': 'call_123'},     #missing recording
+            {'id': 'call_123', 'recording': {}},    #Empty Recording
+            {'id': 'call_123', 'recording': {'contentUri': '/rec'}, 'from': {}},    #No phonenum 
+        ]
+        for call_data in invalid_calls:
+            result = sync_service._process_call(call_data)
+            self.assertFalse(result, f"should have failed for: {call_data}")
+    
+    @patch('ringcentral_to_jobber.config.mock_mode', False)
+    def test_webhook_data_validation(self):
+        with patch('ringcentral_to_jobber.db_manager'):
+            mock_jobber = Mock(spec=JobberClient)
+            call_manager = CallNotificationManager(mock_jobber)
+
+            #invalid webhook data 
+            invalid_events = [
+                {},  # Empty
+                {'body': {}},  # Empty body
+                {'body': {'telephonySessionsEvent': {}}},  # No sessions
+                {'body': {'telephonySessionsEvent': {'telephonySessions': []}}},  # Empty sessions
+            ]
+
+            for event_data in invalid_events:
+                #Shouldnt crash 
+                call_manager.process_call_events(event_data)
+            
+            #tests with malformed session data
+            malformed_session = {
+                'body': {
+                    'telephonySessionsEvent': {
+                        'telephonySessions': [
+                            {'id': None},  # Invalid ID
+                            {'status': 'Proceeding'},  # Missing ID
+                            {}  # Empty session
+                        ]
+                    }
+                }
+            }
+            call_manager.process_call_events(malformed_session)
+
+
+class TestMockModeConsistency(unittest.TestCase):
+    #Tests that mock mode works consistently across all components
+    #@patch('ringcentral_to_jobber.config.mock_mode', True)
+    def test_ringcentral_mock_consistency(self):
+        client = RingCentralClient()
+
+        #auth test 
+        auth_result = client.authenticate()
+        self.assertTrue(auth_result)
+        self.assertEqual(client.access_token, "mock_access_token")
+
+        calls = client.get_recent_calls()
+        self.assertIsInstance(calls, list)
+        self.assertGreater(len(calls), 0)
 
     
 
+    def test_jobber_mock_consistency(self):
+        with patch('ringcentral_to_jobber.db_manager') as mock_db:
+            mock_db.get_token.return_value = None
+            client = JobberClient()
 
+            customer = client.find_customer_by_phone('+15551234567')
+            self.assertIsNotNone(customer)
+            self.assertIn('id', customer)
+
+            result = client.create_customer_note('customer_123', 'Test note')
+            self.assertTrue(result)
+
+    def test_webhook_mock_consistency(self):
+        """Test webhook setup mock mode consistency"""
+        with patch('ringcentral_to_jobber.db_manager'):
+            mock_jobber = Mock(spec=JobberClient)
+            call_manager = CallNotificationManager(mock_jobber)
+            
+            mock_ringcentral = Mock()
+            result = call_manager.setup_ringcentral_webhooks(mock_ringcentral)
+            
+            self.assertIsNotNone(result)
+            self.assertEqual(result['id'], 'mock_webhook_123')
+
+
+class TestLongRunningOperations(unittest.TestCase):
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+    
+    def tearDown(self):
+        shutil.rmtree(self.temp_dir)
+    
+    @patch('schedule.every')
+    def test_service_scheduling(self, mock_schedule):
+        mock_job = Mock()
+        mock_schedule.return_value.minutes.do.return_value = mock_job
+        sync_service = RingCentralJobberSync()
+        sync_service.start_sync_service()
+
+        mock_schedule.assert_called_once()
+        self.assertTrue(sync_service.is_running)
+    
+    def test_service_cleanup(self):
+        sync_service = RingCentralJobberSync()
+        sync_service.start_sync_service()
+
+        self.assertTrue(sync_service.is_running)
+        
+        sync_service.stop_sync_service()
+        self.assertFalse(sync_service.is_running)
+    
+    @patch('time.sleep')
+    def test_scheduler_loop_interruption(self, mock_sleep):
+        sync_service = RingCentralJobberSync()
+        sync_service.is_running = True
+
+        mock_sleep.side_effect = [None, None, KeyboardInterrupt()]
+
+        try: 
+            sync_service._run_scheduler()
+        except KeyboardInterrupt:
+            pass
+        
+        #should call sleep multiple times before interrupt
+        self.assertGreaterEqual(mock_sleep.call_count, 3)
+
+class TestAPIIntegrationEdgeCases(unittest.TestCase):
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+    
+    def tearDown(self):
+        shutil.rmtree(self.temp_dir)
+    
+    @patch('ringcentral_to_jobber.config.mock_mode', False )
+    @patch('requests.post')
+    def test_ringcentral_token_expiration(self, mock_post):
+        client = RingCentralClient()
+
+        mock_response = Mock()
+        mock_response.json.return_value = {
+            'access_token': 'expired_token',
+            'expires_in': -1    #already expired 
+        }
+        mock_response.raise_for_status = Mock()
+        mock_post.return_value = mock_response
+
+        result = client.authenticate()
+        self.assertTrue(result)
+
+        #Token should be set even if expired 
+        self.assertEqual(client.access_token, 'expired_token')
+    
+    @patch('requests.get')
+    def test_ringcentral_pagination(self, mock_get):
+        client = RingCentralClient()
+        client.access_token = 'test_token'
+
+        mock_response = Mock()
+        mock_response.json.return_value = {
+            'records': [
+                {'id': 'call_1', 'recording': {'contenturi': '/rec1'}},
+                {'id': 'call_2', 'recording': {'contentUri': '/rec2'}}
+            ],
+            'paging': {
+                'page': 1,
+                'totalPages': 2,
+                'pageSize': 100
+            }
+        }
+
+        mock_response.raise_for_status = Mock()
+        mock_get.return_value = mock_response
+
+        with patch('ringcentral_to_jobber.config.mock_mode', False):
+            calls = client.get_recent_calls()
+
+            self.assertEqual(len(calls), 2)
+            self.assertEqual(calls[0]['id'], 'call_1')
+    
+    @patch('requests.post')
+    def test_jobber_graphql_errors(self, mock_post):
+        #Test handling graphql errors from jobber 
+        with patch('ringcentral_to_jobber.db_manager') as mock_db:
+            mock_db.get_token.return_value = None
+            client = JobberClient()
+            client.access_token = 'test_token'
+
+            mock_response = Mock()
+            mock_response.json.return_value = {
+                'errors': [
+                    {'message': 'Rate limit exceeded', 'extensions': {'code': 'RATE_LIMITED'}}
+
+                ]
+            }
+            mock_response.raise_for_status = Mock()
+            mock_post.return_value = mock_response
+
+            with patch('ringcentral_to_jobber.config.mock_mode', False):
+                customer = client.find_customer_by_phone('+15551234567')
+
+                #should handle GRAPHQL errors
+                self.assertIsNone(customer)
+    
+    def test_url_construction_edge_cases(self):
+        client = RingCentralClient()
+
+        test_cases = [
+            ('/restapi/v1.0/recording/123', f'{client.base_url}/restapi/v1.0/recording/123'),
+            ('https://media.ringcentral.com/recording/123', 'https://media.ringcentral.com/recording/123'),
+            ('http://example.com/recording', 'http://example.com/recording'),
+            ('', f'{client.base_url}'),
+            (None, f'{client.base_url}None'),  # Edge case - should handle None
+        ]
+        for input_uri, expected in test_cases:
+            if input_uri is not None:
+                result = client.get_recording_url(input_uri)
+                self.assertEqual(result, expected, f"Failed for input: {input_uri}")
 
 
 if __name__ == '__main__':
+    suite = unittest.TestLoader().loadTestsFromModule(__import__(__name__))
+    runner = unittest.TextTestRunner(verbosity=2)
+    result = runner.run(suite)
+
+    #print summary 
+    print(f"\nTest Summary:")
+    print(f"Tests run: {result.testsRun}")
+    print(f"Failures: : {len(result.failures)}")
+    print(f"Errors: {len(result.errors)}")
+    print(f"Success rate: {((result.testsRun - len(result.failures) - len(result.errors)) / result.testsRun * 100):.1f}%")
     '''
     snapshot = tracemalloc.take_snapshot()
     top_stats = snapshot.statistics('lineno')
@@ -1588,7 +2061,7 @@ if __name__ == '__main__':
     for stat in top_stats:
         print(stat)
 '''
-    unittest.main(verbosity=2)
+   # unittest.main(verbosity=2)
     
         
 

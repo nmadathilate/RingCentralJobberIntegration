@@ -1426,6 +1426,66 @@ class TestServiceIntegration(unittest.TestCase):
             mock_db.log_sync_result.assert_called_once_with(1, 1, 'completed_with_errors')
 
 
+class TestWebApplication(unittest.TestCase):
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+
+        with patch('ringcentral_to_jobber.Config'), \
+             patch('ringcentral_to_jobber.DatabaseManager'), \
+             patch('ringcentral_to_jobber.RingCentralJobberSync'):
+            
+            from ringcentral_to_jobber import create_app
+            self.app = create_app()
+            self.client = self.app.test_client()
+            self.app.config['TESTING'] = True
+    
+    def tearDown(self):
+        shutil.rmtree(self.temp_dir)
+    
+    def test_home_route(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'RingCentral-Jobber Integration', response.data)
+        self.assertIn(b'Authorize Jobber Access', response.data)
+    
+    def test_auth_jobber_route(self):
+        with patch('ringcentral_to_jobber.config') as mock_config:
+            mock_config.jobber_client_id = 'test_client'
+            mock_config.jobber_redirect_uri = 'http://localhost:8080/callback'
+
+            response = self.client.get('/auth/jobber')
+            self.assertEqual(response.status_code, 200)
+            self.assertIn(b'api.getjobber.com/oauth/authorize', response.data)
+
+    @patch('requests.post')
+    def test_oauth_callback_success(self, mock_post):
+        mock_response = Mock()
+        mock_response.json.return_value = {
+            'access_token': 'test_token',
+            'refresh_token': 'test_refresh',
+            'expires_in': 3600
+        }
+
+        mock_response.raise_for_status = Mock()
+        mock_post.return_value = mock_response
+
+        response = self.client.get('/callback?code=testcode')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Authorization Successful', response.data)
+    
+    def test_oauth_callback_no_code(self):
+        response = self.client.get('/callback')
+        self.assertEqual(response.status_code, 400)
+
+    @patch('requests.post')
+    def test_oauth_callback_error(self, mock_post):
+        mock_post.side_effect = requests.exceptions.RequestException('API Error')
+
+        response = self.client.get('/callback?code=test_code')
+        self.assertEqual(response.status_code, 500)
+        
+
+
     
 
 

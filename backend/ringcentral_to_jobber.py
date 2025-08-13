@@ -120,7 +120,7 @@ class DatabaseManager:
                 CREATE TABLE IF NOT EXISTS call_notifications (
                                call_id TEXT PRIMARY KEY,
                                from_number TEXT,
-                               tonumber TEXT,
+                               to_number TEXT,
                                caller_name TEXT,
                                start_time TIMESTAMP,
                                status TEXT,
@@ -228,7 +228,7 @@ class DatabaseManager:
                     call_data['caller_name'],
                     call_data['start_time'],
                     call_data['status'],
-                    call_data['custoemr_id']
+                    call_data['customer_id']
                 ))
                 conn.commit()
         except Exception as e:

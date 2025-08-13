@@ -1260,7 +1260,67 @@ class TestNotificationDashboardApp(unittest.TestCase):
         self.assertEqual(data['error'], 'Invalid validation token')
 
 
+class TestDatabaseEnhancements(unittest.TestCase):
+    #Tests db functionality 
+    def setUp(self):
+        #Sets up the db 
+        self.temp_dir = tempfile.mkdtemp()
+        self.db_path = os.path.join(self.temp_dir, 'test_db')
+        self.db_manager = DatabaseManager(self.db_path)
+    
+    def tearDown(self) -> None:
+        if hasattr(self.db_manager, 'conn'):
+            self.db_manager.conn.close()
+        shutil.rmtree(self.temp_dir)
+    
+    def test_store_call_notification_success(self):
+        call_data = {
+            'call_id': 'call_123',
+            'from_number': '+15551234567',
+            'to_number': '+15559876543',
+            'caller_name': 'Test Customer',
+            'start_time': datetime.now(timezone.utc),
+            'status': 'incoming',
+            'customer_id': 'customer_123'
+        }
 
+        self.db_manager.store_call_notifications(call_data)
+        #verify the record was stored
+        import sqlite3
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.execute("SELECT * FROM call_notifications WHERE call_id = ?", ('call_123',))
+            row = cursor.fetchone()
+            self.assertIsNotNone(row)
+            if row:
+            # Assuming the table structure matches your INSERT statement
+                self.assertEqual(row[0], 'call_123')  # call_id
+                self.assertEqual(row[1], '+15551234567')  # from_number
+                self.assertEqual(row[2], '+15559876543')  # to_number
+                self.assertEqual(row[3], 'Test Customer')  # caller_name
+                self.assertEqual(row[5], 'incoming')  # status
+                self.assertEqual(row[6], 'customer_123')
+    
+    def test_store_call_notification_error_handling(self):
+        invalid_call_data = {
+            'call_id': None,
+            'from_number': '+15551234567'
+        }
+
+
+        self.db_manager.store_call_notifications(invalid_call_data)
+
+    def test_database_table_creation(self):
+        import sqlite3
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.execute("""
+                                  SELECT name FROM sqlite_master
+                                  WHERE type='table' AND name='call_notifications'
+                                  """)
+            result = cursor.fetchone()
+            self.assertIsNotNone(result)
+            
+
+        
 
 
     
